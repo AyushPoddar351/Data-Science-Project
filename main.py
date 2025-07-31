@@ -1,3 +1,13 @@
 from src.DataScienceProject import logger
+from src.DataScienceProject.pipeline.data_ingestion_pipeline import DataIngestionTrainingPipeline
 
-logger.info("Welcome to our custom logging")
+STAGE_NAME = "Data Ingestion stage"
+
+try:
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+   data_ingestion = DataIngestionTrainingPipeline()
+   data_ingestion.initiate()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e

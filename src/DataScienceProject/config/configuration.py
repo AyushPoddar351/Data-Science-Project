@@ -6,6 +6,14 @@ from src.DataScienceProject.entity.config_entity import (DataTransformationConfi
 from src.DataScienceProject.entity.config_entity import (ModelTrainerConfig)
 from src.DataScienceProject.entity.config_entity import (ModelEvaluationConfig)
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI")
+MLFLOW_TRACKING_USERNAME = os.getenv("MLFLOW_TRACKING_USERNAME")
+MLFLOW_TRACKING_PASSWORD = os.getenv("MLFLOW_TRACKING_PASSWORD")
+
 class ConfigurationManager:
     def __init__(self,
                 config_filepath = CONFIG_FILE_PATH,
@@ -90,6 +98,6 @@ class ConfigurationManager:
             all_params=params,
             metric_file_name = config.metric_file_name,
             target_column = schema.name,
-            mlflow_uri = "https://dagshub.com/krishnaik06/MLOPSProject.mlflow",
+            mlflow_uri = MLFLOW_TRACKING_URI
         )
         return model_evaluation_config

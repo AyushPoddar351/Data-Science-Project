@@ -4,3 +4,4 @@ logs
 artifacts
 __pycache__
 mlruns
+.env

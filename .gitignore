@@ -3,3 +3,4 @@ zip
 logs
 artifacts
 __pycache__
+mlruns
